@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
+    @StateObject var vm: ProfileListViewModel = ProfileListViewModel(localDBService: CoreDataManager(context: CoreDataService.shared.context))
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +20,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear{
+            vm.getProfileList()
+        }
     }
 }
 
