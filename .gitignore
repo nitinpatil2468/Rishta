@@ -1,0 +1,28 @@
+# Xcode
+.DS_Store
+.idea/
+.vscode/
+xcuserdata/
+DerivedData/
+*.hmap
+*.ipa
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# Swift Package Manager
+/.build
+/Packages
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# SwiftPM
+.swiftpm/
+
+# Xcode archives
+*.xcarchive
