@@ -10,6 +10,7 @@ import Foundation
 protocol LocalStorageService {
     func saveToDatabase(data: PersonRawData) -> Bool
     func fetchFromDatabase() -> [PersonRawData]
+    func updateDatabase(data: PersonRawData) -> Bool
 }
 
 
@@ -30,7 +31,14 @@ class StorageManager {
     
     func fetchData() -> [PersonRawData] {
         let databaseData = databaseService.fetchFromDatabase()
-        print(databaseData)
-        return []
+        return databaseData
+    }
+    
+    func updateData(data: PersonRawData)-> Bool{
+        if databaseService.updateDatabase(data: data) {
+            print("Updated database.")
+            return true
+        }
+        return false
     }
 }

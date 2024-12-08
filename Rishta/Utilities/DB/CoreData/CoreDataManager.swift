@@ -18,7 +18,6 @@ class CoreDataManager: LocalStorageService {
     
     func saveToDatabase(data: PersonRawData) -> Bool {
         
-//        for person in data {
             let personEntity = UserProfile(context: context)
             personEntity.name = data.name
             personEntity.age = Int64(data.age ?? 0)
@@ -28,7 +27,6 @@ class CoreDataManager: LocalStorageService {
             personEntity.image = data.image ?? ""
             personEntity.gender = data.gender ?? ""
             personEntity.userId = data.id ?? ""
-//        }
         
         do {
             try context.save()
@@ -62,5 +60,36 @@ class CoreDataManager: LocalStorageService {
             print("Failed to fetch people: \(error)")
             return []
         }
+    }
+    
+    func updateDatabase(data: PersonRawData) -> Bool {
+        let fetchRequest: NSFetchRequest<UserProfile> = UserProfile.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "userId == %@", data.id ?? "")
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                
+                if let existingPerson = results.first {
+                    // Update the properties of the existing person
+                    existingPerson.name = data.name
+                    existingPerson.age = Int64(data.age ?? 0)
+                    existingPerson.isAccepted = data.accept ?? false
+                    existingPerson.isDeclined = data.decline ?? false
+                    existingPerson.address = data.address ?? ""
+                    existingPerson.image = data.image ?? ""
+                    existingPerson.gender = data.gender ?? ""
+                    
+                    try context.save()
+                    print("Successfully updated person with userId: \(data.id ?? "")")
+                } else {
+                    print("No person found with userId: \(data.id ?? "")")
+                }
+                
+            } catch {
+                print("Failed to update person: \(error)")
+                return false
+            }
+        
+        return true
     }
 }

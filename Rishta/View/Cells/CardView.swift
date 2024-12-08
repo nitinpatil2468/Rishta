@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 // MARK: - CardView
 struct CardView: View {
 
+    @Binding var showEmptyRequest: Bool
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     @State private var currentImageIndex = 0
@@ -93,6 +94,11 @@ private extension CardView {
             xOffset = -500
             degrees = -15
         } completion: {
+            
+            if (personData.id ?? "") == (vm.matchList.first?.id ?? ""){
+                showEmptyRequest  = true
+            }
+            
             personData.decline = true
             vm.rejectMatch(model: personData)
         }
@@ -103,6 +109,10 @@ private extension CardView {
             xOffset = 500
             degrees = 15
         } completion: {
+            
+            if (personData.id ?? "") == (vm.matchList.first?.id ?? ""){
+                showEmptyRequest  = true
+            }
             
             personData.accept = true
             vm.acceptMatch(model: personData)

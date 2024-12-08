@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
-    var body: some View {
-        TabView {
+    
+    @State var selectedTab = 0
 
-            CardStackView()
+    var body: some View {
+        
+        TabView(selection: $selectedTab) {
+
+            CardStackView(selectedTab: $selectedTab)
                 .tabItem {
                     Label("", systemImage: "house.fill")
                 }
+                .tag(0)
             
-            MatchListView()
+            MatchListView(selectedTab: $selectedTab)
                 .tabItem {
                     Label("", systemImage: "heart.slash.fill")
                 }
-            
+                .tag(1)
            
         }
         .accentColor(Color(.IconColor)) // Customize the selected tab item color

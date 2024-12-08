@@ -19,7 +19,7 @@ class ProfileListService: ProfileListServiceProtocol{
     func getProfileList(_ completion: @escaping (Result<GetProfileListResponse, String>) -> Void) {
         
         
-        NetworkManager.sharedInstance.performRequestWithoutHeader(serviceType: .getProfiles(dataCount: "10")) { response in
+        NetworkManager.sharedInstance.performRequest(serviceType: .getProfiles(dataCount: "10")) { response in
             
             let str = CommonMethods().printAPIResponse(data: response)
             let modal = response.decode(model: GetProfileListResponse.self)

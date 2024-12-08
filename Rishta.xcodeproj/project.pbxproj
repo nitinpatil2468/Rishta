@@ -34,6 +34,13 @@
 		EFC5A9542D0595F700C45A3F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9532D0595F700C45A3F /* HomeView.swift */; };
 		EFC5A9562D05965400C45A3F /* MatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9552D05965400C45A3F /* MatchListView.swift */; };
 		EFC5A9592D059D9100C45A3F /* SwipeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9582D059D9100C45A3F /* SwipeButtonsView.swift */; };
+		EFC5A95C2D05A7B400C45A3F /* FriendCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A95B2D05A7B400C45A3F /* FriendCardView.swift */; };
+		EFC5A95E2D05A81800C45A3F /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A95D2D05A81800C45A3F /* FriendListViewModel.swift */; };
+		EFC5A9602D05AE6200C45A3F /* MatchSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A95F2D05AE6200C45A3F /* MatchSegmentView.swift */; };
+		EFC5A9622D05AE9F00C45A3F /* MatchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9612D05AE9F00C45A3F /* MatchStatus.swift */; };
+		EFC5A9652D05BB9B00C45A3F /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9642D05BB9B00C45A3F /* Shimmer.swift */; };
+		EFC5A96B2D05C56000C45A3F /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A96A2D05C56000C45A3F /* NoDataView.swift */; };
+		EFC5A96E2D05C6E300C45A3F /* EmptyScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A96D2D05C6E300C45A3F /* EmptyScreenType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +74,13 @@
 		EFC5A9532D0595F700C45A3F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EFC5A9552D05965400C45A3F /* MatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListView.swift; sourceTree = "<group>"; };
 		EFC5A9582D059D9100C45A3F /* SwipeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeButtonsView.swift; sourceTree = "<group>"; };
+		EFC5A95B2D05A7B400C45A3F /* FriendCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCardView.swift; sourceTree = "<group>"; };
+		EFC5A95D2D05A81800C45A3F /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
+		EFC5A95F2D05AE6200C45A3F /* MatchSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSegmentView.swift; sourceTree = "<group>"; };
+		EFC5A9612D05AE9F00C45A3F /* MatchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatus.swift; sourceTree = "<group>"; };
+		EFC5A9642D05BB9B00C45A3F /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		EFC5A96A2D05C56000C45A3F /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		EFC5A96D2D05C6E300C45A3F /* EmptyScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +135,14 @@
 		EFC5A90A2D0493E200C45A3F /* Rishta */ = {
 			isa = PBXGroup;
 			children = (
+				EFC5A9692D05C4BE00C45A3F /* App */,
+				EFC5A9682D05C49100C45A3F /* New Group */,
 				EFC5A94B2D05730A00C45A3F /* Resource */,
 				EFC5A93F2D0562A900C45A3F /* View */,
 				EFC5A9242D049BC100C45A3F /* ViewModel */,
 				EFC5A9212D049A1900C45A3F /* Model */,
 				EFC5A91E2D04994100C45A3F /* Helper */,
 				EFC5A9192D04948E00C45A3F /* Utilities */,
-				EFC5A90B2D0493E200C45A3F /* RishtaApp.swift */,
-				EFC5A90D2D0493E200C45A3F /* ContentView.swift */,
 				EFC5A9112D0493E300C45A3F /* Preview Content */,
 				EFC5A92D2D04B10100C45A3F /* DBModel.xcdatamodeld */,
 			);
@@ -146,6 +160,7 @@
 		EFC5A9192D04948E00C45A3F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EFC5A9632D05BB8E00C45A3F /* Modifiers */,
 				EFC5A9322D04B59500C45A3F /* DB */,
 				EFC5A9282D04AB5700C45A3F /* Network */,
 				EFC5A9452D0564D000C45A3F /* SizeConstants.swift */,
@@ -166,6 +181,8 @@
 			children = (
 				EFC5A9222D049A2A00C45A3F /* GetProfileListResponse.swift */,
 				EFC5A9302D04B38200C45A3F /* PersonRawData.swift */,
+				EFC5A9612D05AE9F00C45A3F /* MatchStatus.swift */,
+				EFC5A96D2D05C6E300C45A3F /* EmptyScreenType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				EFC5A9262D049BF300C45A3F /* ProfileListViewModel.swift */,
+				EFC5A95D2D05A81800C45A3F /* FriendListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -211,7 +229,7 @@
 			children = (
 				EFC5A9402D0562AF00C45A3F /* Cells */,
 				EFC5A9432D05634E00C45A3F /* CardStackView.swift */,
-				EFC5A9512D0586DF00C45A3F /* TopView.swift */,
+				EFC5A9552D05965400C45A3F /* MatchListView.swift */,
 				EFC5A9532D0595F700C45A3F /* HomeView.swift */,
 			);
 			path = View;
@@ -220,11 +238,14 @@
 		EFC5A9402D0562AF00C45A3F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EFC5A95F2D05AE6200C45A3F /* MatchSegmentView.swift */,
+				EFC5A9512D0586DF00C45A3F /* TopView.swift */,
 				EFC5A9412D0562DB00C45A3F /* CardView.swift */,
 				EFC5A9472D056C4E00C45A3F /* UserInfoView.swift */,
 				EFC5A9492D056E1500C45A3F /* SwipeIndicatorView.swift */,
-				EFC5A9552D05965400C45A3F /* MatchListView.swift */,
 				EFC5A9582D059D9100C45A3F /* SwipeButtonsView.swift */,
+				EFC5A95B2D05A7B400C45A3F /* FriendCardView.swift */,
+				EFC5A96A2D05C56000C45A3F /* NoDataView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -236,6 +257,30 @@
 				EFC5A94C2D05731900C45A3F /* UIColor.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		EFC5A9632D05BB8E00C45A3F /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				EFC5A9642D05BB9B00C45A3F /* Shimmer.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		EFC5A9682D05C49100C45A3F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		EFC5A9692D05C4BE00C45A3F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EFC5A90B2D0493E200C45A3F /* RishtaApp.swift */,
+				EFC5A90D2D0493E200C45A3F /* ContentView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +401,9 @@
 				EFC5A9422D0562DB00C45A3F /* CardView.swift in Sources */,
 				EFC5A92A2D04ABA400C45A3F /* NetworkData.swift in Sources */,
 				EFC5A93B2D04CA0300C45A3F /* CoreDataService.swift in Sources */,
+				EFC5A9622D05AE9F00C45A3F /* MatchStatus.swift in Sources */,
+				EFC5A96E2D05C6E300C45A3F /* EmptyScreenType.swift in Sources */,
+				EFC5A9602D05AE6200C45A3F /* MatchSegmentView.swift in Sources */,
 				EFC5A9562D05965400C45A3F /* MatchListView.swift in Sources */,
 				EFC5A9372D04B6EA00C45A3F /* StorageManager.swift in Sources */,
 				EFC5A91D2D04981800C45A3F /* NetworkManager.swift in Sources */,
@@ -364,11 +412,15 @@
 				EFC5A9312D04B38200C45A3F /* PersonRawData.swift in Sources */,
 				EFC5A94D2D05731900C45A3F /* UIColor.swift in Sources */,
 				EFC5A9392D04B78A00C45A3F /* CoreDataManager.swift in Sources */,
+				EFC5A96B2D05C56000C45A3F /* NoDataView.swift in Sources */,
 				EFC5A9232D049A2A00C45A3F /* GetProfileListResponse.swift in Sources */,
 				EFC5A92F2D04B10100C45A3F /* DBModel.xcdatamodeld in Sources */,
+				EFC5A95E2D05A81800C45A3F /* FriendListViewModel.swift in Sources */,
+				EFC5A9652D05BB9B00C45A3F /* Shimmer.swift in Sources */,
 				EFC5A9272D049BF300C45A3F /* ProfileListViewModel.swift in Sources */,
 				EFC5A9202D04996100C45A3F /* ProfileListService.swift in Sources */,
 				EFC5A9542D0595F700C45A3F /* HomeView.swift in Sources */,
+				EFC5A95C2D05A7B400C45A3F /* FriendCardView.swift in Sources */,
 				EFC5A94A2D056E1500C45A3F /* SwipeIndicatorView.swift in Sources */,
 				EFC5A9592D059D9100C45A3F /* SwipeButtonsView.swift in Sources */,
 				EFC5A90E2D0493E200C45A3F /* ContentView.swift in Sources */,

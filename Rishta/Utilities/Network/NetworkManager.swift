@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import Network
 
 enum NetworkingError: String, Error {
     case badURL
@@ -26,66 +27,75 @@ import Alamofire
 class NetworkManager {
     static let sharedInstance = NetworkManager()
 
-    // Retained session property
     private let session: Session
+    private let networkMonitor: NWPathMonitor
+    private var isConnected: Bool = true
 
     private init() {
+
         let memoryCapacity = 50 * 1024 * 1024
-        let diskCapacity = 100 * 1024 * 1024 
+        let diskCapacity = 100 * 1024 * 1024
         let cache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "my_cache")
         URLCache.shared = cache
 
+
         session = NetworkManager.createSession()
+
+
+        networkMonitor = NWPathMonitor()
+        networkMonitor.pathUpdateHandler = { path in
+            self.isConnected = path.status == .satisfied
+        }
+        networkMonitor.start(queue: DispatchQueue.global(qos: .background))
     }
 
     private static func createSession() -> Session {
         let configuration = URLSessionConfiguration.default
-        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         configuration.urlCache = URLCache.shared
-        return Alamofire.Session(configuration: configuration)
+        return Session(configuration: configuration)
     }
 
-    func getSession() -> Session {
-        return session
-    }
-
-    func performRequestWithoutHeader(serviceType: APIServiceManager,
-                                     success: @escaping (_ response: DataResponse<Data, AFError>) -> Void,
-                                     failure: @escaping (_ error: String) -> Void) {
+    func performRequest(serviceType: APIServiceManager,
+                        success: @escaping (_ response: DataResponse<Data, AFError>) -> Void,
+                        failure: @escaping (_ error: String) -> Void) {
         
-        getSession().request(serviceType.path,
-                        method: serviceType.method,
-                        parameters: serviceType.parameters,
-                        encoding: JSONEncoding.default,
-                        headers: nil)
-        .responseData { response in
-            switch response.result {
-                
-            case .success:
-                success(response)
-                
-            case .failure(let error):
+        if isConnected {
 
-                if let request = response.request,
-                   let cachedResponse = URLCache.shared.cachedResponse(for: request) {
-                    let cachedDataResponse = DataResponse<Data, AFError>(
-                        request: request,
-                        response: response.response,
-                        data: cachedResponse.data,
-                        metrics: response.metrics,
-                        serializationDuration: 0,
-                        result: .success(cachedResponse.data)
-                    )
-                    success(cachedDataResponse)
-                    
-                } else {
+            session.request(
+                serviceType.path,
+                method: serviceType.method,
+                parameters: serviceType.parameters,
+                encoding: JSONEncoding.default,
+                headers: nil
+            )
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    success(response)
+                case .failure(let error):
                     failure(error.localizedDescription)
                 }
+            }
+        } else {
+
+            let request = URLRequest(url: URL(string: serviceType.path)!)
+            if let cachedResponse = URLCache.shared.cachedResponse(for: request) {
+                let cachedDataResponse = DataResponse<Data, AFError>(
+                    request: request,
+                    response: cachedResponse.response as? HTTPURLResponse,
+                    data: cachedResponse.data,
+                    metrics: nil,
+                    serializationDuration: 0,
+                    result: .success(cachedResponse.data)
+                )
+                success(cachedDataResponse)
+            } else {
+                failure("No cached data available.")
             }
         }
     }
 }
-
 class CommonMethods{
     func printAPIResponse(data : DataResponse<Data, AFError>)->String{
         guard let data = data.data else {return ""}

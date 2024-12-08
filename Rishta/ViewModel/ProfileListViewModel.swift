@@ -14,21 +14,9 @@ protocol ProfileListVMProtocol{
 
 class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
     
-    @Published var showAlertMessage:Bool = false
-    @Published var didSendOtp:Bool = false
-    @Published var didCheckUser:Bool = false
-    @Published var didPrivacyUrlClicked: Bool = false
-    @Published var didGetSigningOption: Bool = false
+    @Published var isDataLoading:Bool = true
     
     @Published var matchList = [PersonRawData]()
-
-    var titleText:String?
-    var url:String?
-    var isGoogleSigningAvailable:Bool?
-    
-    var isUserExist:Bool?
-    var phoneText:String?
-    var errorMessage:String?
     
     var profileListService: ProfileListServiceProtocol
     var localStorageService: LocalStorageService
@@ -43,16 +31,19 @@ class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
     }
     
     func getProfileList() {
+        
+        isDataLoading = true
         ProfileListService().getProfileList { [weak self] response in
             
             guard let self = self else{return}
             
+            isDataLoading = false
+
             switch response {
             case .success(let result):
                 
                 matchList = mapProfiles(result.results)
 
-//                saveDataInDB(result.results)
                 break
                 
             case .failure(_):
@@ -61,17 +52,6 @@ class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
                 
             }
         }
-    }
-    
-    func saveDataInDB(_ model:PersonRawData?){
-        
-        guard let model = model else{return}
-        let dataManager = StorageManager(databaseService: localStorageService)
-        if (dataManager.saveData(data: model)){
-            dataManager.fetchData()
-        }
-
-        
     }
     
 }
@@ -126,5 +106,13 @@ extension ProfileListViewModel{
     
     func rejectMatch(model:PersonRawData){
         saveDataInDB(model)
+    }
+    
+    func saveDataInDB(_ model:PersonRawData?){
+        
+        guard let model = model else{return}
+        let dataManager = StorageManager(databaseService: localStorageService)
+        let _ = dataManager.saveData(data: model)
+        
     }
 }

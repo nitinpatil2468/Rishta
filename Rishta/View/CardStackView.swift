@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct CardStackView: View {
     
+    @Binding var selectedTab:Int
+
     @StateObject var profileListVm: ProfileListViewModel = ProfileListViewModel(localDBService: CoreDataManager(context: CoreDataService.shared.context))
+    
+    @State var showEmptyRequest: Bool = false
     
     var body: some View {
         NavigationStack {
             
-            
-//            [UIColor.blue.cgColor, UIColor.cyan.cgColor]
             ZStack {
                 
                 LinearGradient(
@@ -33,15 +33,27 @@ struct CardStackView: View {
 
                     .edgesIgnoringSafeArea(.all)
                 
-                
-                
-                VStack(spacing: 16) {
-                    ZStack {
-                        ForEach(profileListVm.matchList) { card in
-                            CardView(personData: card, vm: profileListVm)
-                                .id(card.id)
+                if showEmptyRequest{
+                   
+                    NoDataView(selectedTab: $selectedTab,
+                               screenType: .homeScreen)
+                    
+                }
+                                
+                if !showEmptyRequest{
+                    
+                    VStack(spacing: 16) {
+                        ZStack {
+                            ForEach(profileListVm.matchList) { card in
+                                CardView(
+                                    showEmptyRequest: $showEmptyRequest,
+                                    personData: card,
+                                    vm: profileListVm
+                                )
+                                    .id(card.id)
+                            }
                         }
-                    }
+                    }.shimmer(when: $profileListVm.isDataLoading)
                 }
                 
             }
@@ -51,6 +63,7 @@ struct CardStackView: View {
                 }
             }
             .onAppear{
+                showEmptyRequest = false
                 profileListVm.getProfileList()
             }
         }
@@ -58,10 +71,3 @@ struct CardStackView: View {
 }
 
 
-#Preview {
-    CardStackView()
-}
-
-//.background(
-//
-//)
