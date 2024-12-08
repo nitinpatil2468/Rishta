@@ -11,8 +11,8 @@ struct PersonRawData:Identifiable {
     let id: String?
     let name: String?
     let age: Int?
-    let accept: Bool?
-    let decline: Bool?
+    var accept: Bool?
+    var decline: Bool?
     let gender: String?
     let image: String?
     let address: String?

@@ -63,11 +63,11 @@ class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
         }
     }
     
-    func saveDataInDB(_ list:[Profile]?){
+    func saveDataInDB(_ model:PersonRawData?){
         
-        let mappedProfiles = mapProfiles(list)
+        guard let model = model else{return}
         let dataManager = StorageManager(databaseService: localStorageService)
-        if (dataManager.saveData(data: mappedProfiles)){
+        if (dataManager.saveData(data: model)){
             dataManager.fetchData()
         }
 
@@ -115,4 +115,16 @@ extension ProfileListViewModel{
         
     }
     
+}
+
+
+extension ProfileListViewModel{
+    
+    func acceptMatch(model:PersonRawData){
+        saveDataInDB(model)
+    }
+    
+    func rejectMatch(model:PersonRawData){
+        saveDataInDB(model)
+    }
 }

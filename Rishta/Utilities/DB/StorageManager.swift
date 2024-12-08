@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LocalStorageService {
-    func saveToDatabase(data: [PersonRawData]) -> Bool
+    func saveToDatabase(data: PersonRawData) -> Bool
     func fetchFromDatabase() -> [PersonRawData]
 }
 
@@ -20,7 +20,7 @@ class StorageManager {
         self.databaseService = databaseService
     }
     
-    func saveData(data: [PersonRawData])-> Bool{
+    func saveData(data: PersonRawData)-> Bool{
         if databaseService.saveToDatabase(data: data) {
             print("Successfully saved data to the database.")
             return true

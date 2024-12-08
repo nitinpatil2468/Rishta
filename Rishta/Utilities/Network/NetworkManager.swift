@@ -21,39 +21,67 @@ struct ValidationResult{
     let error:String?
 }
 
+import Alamofire
+
 class NetworkManager {
     static let sharedInstance = NetworkManager()
-    private var sessions: [TimeInterval: Alamofire.Session] = [:]
-    
-    private init(){
-        let defaultConfiguration = URLSessionConfiguration.default
-        sessions[0] = Alamofire.Session(configuration: defaultConfiguration)
+
+    // Retained session property
+    private let session: Session
+
+    private init() {
+        let memoryCapacity = 50 * 1024 * 1024
+        let diskCapacity = 100 * 1024 * 1024 
+        let cache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "my_cache")
+        URLCache.shared = cache
+
+        session = NetworkManager.createSession()
     }
-    
-    func getSession(timeout: TimeInterval) -> Session {
-        if let session = sessions[timeout] {
-            return session
-        } else {
-            let configuration = URLSessionConfiguration.default
-            configuration.timeoutIntervalForRequest = timeout
-            configuration.timeoutIntervalForResource = timeout
-            let session = Alamofire.Session(configuration: configuration)
-            sessions[timeout] = session
-            return session
-        }
+
+    private static func createSession() -> Session {
+        let configuration = URLSessionConfiguration.default
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        configuration.urlCache = URLCache.shared
+        return Alamofire.Session(configuration: configuration)
     }
-    
-    func performRequestWithoutHeader(serviceType:APIServiceManager, success:@escaping (_ response:DataResponse<Data, AFError>) -> Void) {
+
+    func getSession() -> Session {
+        return session
+    }
+
+    func performRequestWithoutHeader(serviceType: APIServiceManager,
+                                     success: @escaping (_ response: DataResponse<Data, AFError>) -> Void,
+                                     failure: @escaping (_ error: String) -> Void) {
         
-        let session = getSession(timeout: 0)
-        
-        session.request(serviceType.path,
+        getSession().request(serviceType.path,
                         method: serviceType.method,
                         parameters: serviceType.parameters,
                         encoding: JSONEncoding.default,
-                        headers: nil).responseData {
-            response in
-            success(response)
+                        headers: nil)
+        .responseData { response in
+            switch response.result {
+                
+            case .success:
+                success(response)
+                
+            case .failure(let error):
+
+                if let request = response.request,
+                   let cachedResponse = URLCache.shared.cachedResponse(for: request) {
+                    let cachedDataResponse = DataResponse<Data, AFError>(
+                        request: request,
+                        response: response.response,
+                        data: cachedResponse.data,
+                        metrics: response.metrics,
+                        serializationDuration: 0,
+                        result: .success(cachedResponse.data)
+                    )
+                    success(cachedDataResponse)
+                    
+                } else {
+                    failure(error.localizedDescription)
+                }
+            }
         }
     }
 }

@@ -16,19 +16,19 @@ class CoreDataManager: LocalStorageService {
         self.context = context
     }
     
-    func saveToDatabase(data: [PersonRawData]) -> Bool {
+    func saveToDatabase(data: PersonRawData) -> Bool {
         
-        for person in data {
+//        for person in data {
             let personEntity = UserProfile(context: context)
-            personEntity.name = person.name
-            personEntity.age = Int64(person.age ?? 0)
-            personEntity.isAccepted = person.accept ?? false
-            personEntity.isDeclined = person.decline ?? false
-            personEntity.address = person.address ?? ""
-            personEntity.image = person.image ?? ""
-            personEntity.gender = person.gender ?? ""
-            personEntity.userId = person.id ?? ""
-        }
+            personEntity.name = data.name
+            personEntity.age = Int64(data.age ?? 0)
+            personEntity.isAccepted = data.accept ?? false
+            personEntity.isDeclined = data.decline ?? false
+            personEntity.address = data.address ?? ""
+            personEntity.image = data.image ?? ""
+            personEntity.gender = data.gender ?? ""
+            personEntity.userId = data.id ?? ""
+//        }
         
         do {
             try context.save()

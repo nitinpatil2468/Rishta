@@ -114,6 +114,8 @@ private extension CardView {
             xOffset = -500
             degrees = -15
         } completion: {
+            personData.decline = true
+            vm.rejectMatch(model: personData)
         }
     }
     
@@ -122,6 +124,10 @@ private extension CardView {
             xOffset = 500
             degrees = 15
         } completion: {
+            
+            personData.accept = true
+            vm.acceptMatch(model: personData)
+            
         }
     }
     

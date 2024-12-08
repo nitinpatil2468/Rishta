@@ -18,13 +18,18 @@ protocol ProfileListServiceProtocol {
 class ProfileListService: ProfileListServiceProtocol{
     func getProfileList(_ completion: @escaping (Result<GetProfileListResponse, String>) -> Void) {
         
-        NetworkManager.sharedInstance.performRequestWithoutHeader(
-            serviceType: .getProfiles(dataCount: "10")){ response in
-                
-                let str = CommonMethods().printAPIResponse(data: response)
-                let modal = response.decode(model: GetProfileListResponse.self)
-                completion(modal)
-            }
+        
+        NetworkManager.sharedInstance.performRequestWithoutHeader(serviceType: .getProfiles(dataCount: "10")) { response in
+            
+            let str = CommonMethods().printAPIResponse(data: response)
+            let modal = response.decode(model: GetProfileListResponse.self)
+            completion(modal)
+            
+        } failure: { error in
+            
+            debugPrint(error)
+        }
+
     }
     
     
