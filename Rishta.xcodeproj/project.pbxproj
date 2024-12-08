@@ -24,6 +24,12 @@
 		EFC5A9372D04B6EA00C45A3F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9362D04B6EA00C45A3F /* StorageManager.swift */; };
 		EFC5A9392D04B78A00C45A3F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9382D04B78A00C45A3F /* CoreDataManager.swift */; };
 		EFC5A93B2D04CA0300C45A3F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A93A2D04CA0300C45A3F /* CoreDataService.swift */; };
+		EFC5A9422D0562DB00C45A3F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9412D0562DB00C45A3F /* CardView.swift */; };
+		EFC5A9442D05634E00C45A3F /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9432D05634E00C45A3F /* CardStackView.swift */; };
+		EFC5A9462D0564D000C45A3F /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9452D0564D000C45A3F /* SizeConstants.swift */; };
+		EFC5A9482D056C4E00C45A3F /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9472D056C4E00C45A3F /* UserInfoView.swift */; };
+		EFC5A94A2D056E1500C45A3F /* SwipeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9492D056E1500C45A3F /* SwipeIndicatorView.swift */; };
+		EFC5A94D2D05731900C45A3F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A94C2D05731900C45A3F /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +53,12 @@
 		EFC5A9362D04B6EA00C45A3F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		EFC5A9382D04B78A00C45A3F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		EFC5A93A2D04CA0300C45A3F /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		EFC5A9412D0562DB00C45A3F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		EFC5A9432D05634E00C45A3F /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
+		EFC5A9452D0564D000C45A3F /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
+		EFC5A9472D056C4E00C45A3F /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		EFC5A9492D056E1500C45A3F /* SwipeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeIndicatorView.swift; sourceTree = "<group>"; };
+		EFC5A94C2D05731900C45A3F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +113,14 @@
 		EFC5A90A2D0493E200C45A3F /* Rishta */ = {
 			isa = PBXGroup;
 			children = (
+				EFC5A94B2D05730A00C45A3F /* Resource */,
+				EFC5A93F2D0562A900C45A3F /* View */,
 				EFC5A9242D049BC100C45A3F /* ViewModel */,
 				EFC5A9212D049A1900C45A3F /* Model */,
 				EFC5A91E2D04994100C45A3F /* Helper */,
 				EFC5A9192D04948E00C45A3F /* Utilities */,
 				EFC5A90B2D0493E200C45A3F /* RishtaApp.swift */,
 				EFC5A90D2D0493E200C45A3F /* ContentView.swift */,
-				EFC5A90F2D0493E300C45A3F /* Assets.xcassets */,
 				EFC5A9112D0493E300C45A3F /* Preview Content */,
 				EFC5A92D2D04B10100C45A3F /* DBModel.xcdatamodeld */,
 			);
@@ -127,6 +140,7 @@
 			children = (
 				EFC5A9322D04B59500C45A3F /* DB */,
 				EFC5A9282D04AB5700C45A3F /* Network */,
+				EFC5A9452D0564D000C45A3F /* SizeConstants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -182,6 +196,34 @@
 				EFC5A93A2D04CA0300C45A3F /* CoreDataService.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EFC5A93F2D0562A900C45A3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFC5A9402D0562AF00C45A3F /* Cells */,
+				EFC5A9432D05634E00C45A3F /* CardStackView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EFC5A9402D0562AF00C45A3F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EFC5A9412D0562DB00C45A3F /* CardView.swift */,
+				EFC5A9472D056C4E00C45A3F /* UserInfoView.swift */,
+				EFC5A9492D056E1500C45A3F /* SwipeIndicatorView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EFC5A94B2D05730A00C45A3F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EFC5A90F2D0493E300C45A3F /* Assets.xcassets */,
+				EFC5A94C2D05731900C45A3F /* UIColor.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,18 +340,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC5A9442D05634E00C45A3F /* CardStackView.swift in Sources */,
+				EFC5A9422D0562DB00C45A3F /* CardView.swift in Sources */,
 				EFC5A92A2D04ABA400C45A3F /* NetworkData.swift in Sources */,
 				EFC5A93B2D04CA0300C45A3F /* CoreDataService.swift in Sources */,
 				EFC5A9372D04B6EA00C45A3F /* StorageManager.swift in Sources */,
 				EFC5A91D2D04981800C45A3F /* NetworkManager.swift in Sources */,
+				EFC5A9462D0564D000C45A3F /* SizeConstants.swift in Sources */,
 				EFC5A9312D04B38200C45A3F /* PersonRawData.swift in Sources */,
+				EFC5A94D2D05731900C45A3F /* UIColor.swift in Sources */,
 				EFC5A9392D04B78A00C45A3F /* CoreDataManager.swift in Sources */,
 				EFC5A9232D049A2A00C45A3F /* GetProfileListResponse.swift in Sources */,
 				EFC5A92F2D04B10100C45A3F /* DBModel.xcdatamodeld in Sources */,
 				EFC5A9272D049BF300C45A3F /* ProfileListViewModel.swift in Sources */,
 				EFC5A9202D04996100C45A3F /* ProfileListService.swift in Sources */,
+				EFC5A94A2D056E1500C45A3F /* SwipeIndicatorView.swift in Sources */,
 				EFC5A90E2D0493E200C45A3F /* ContentView.swift in Sources */,
 				EFC5A91B2D04955200C45A3F /* APIServiceManager.swift in Sources */,
+				EFC5A9482D056C4E00C45A3F /* UserInfoView.swift in Sources */,
 				EFC5A90C2D0493E200C45A3F /* RishtaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PersonRawData {
+struct PersonRawData:Identifiable {
     let id: String?
     let name: String?
     let age: Int?

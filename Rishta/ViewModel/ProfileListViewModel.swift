@@ -20,6 +20,8 @@ class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
     @Published var didPrivacyUrlClicked: Bool = false
     @Published var didGetSigningOption: Bool = false
     
+    @Published var matchList = [PersonRawData]()
+
     var titleText:String?
     var url:String?
     var isGoogleSigningAvailable:Bool?
@@ -48,7 +50,9 @@ class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
             switch response {
             case .success(let result):
                 
-                saveDataInDB(result.results)
+                matchList = mapProfiles(result.results)
+
+//                saveDataInDB(result.results)
                 break
                 
             case .failure(_):
