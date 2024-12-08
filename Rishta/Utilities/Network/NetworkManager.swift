@@ -96,17 +96,3 @@ class NetworkManager {
         }
     }
 }
-class CommonMethods{
-    func printAPIResponse(data : DataResponse<Data, AFError>)->String{
-        guard let data = data.data else {return ""}
-        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
-           let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
-            let result = String(decoding: jsonData, as: UTF8.self)
-                        print("DEBUGRESONSE : \(result)")
-            return result
-        } else {
-            debugPrint("json data malformed")
-            return "json data malformed"
-        }
-    }
-}

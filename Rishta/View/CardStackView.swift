@@ -14,7 +14,7 @@ struct CardStackView: View {
     @StateObject var profileListVm: ProfileListViewModel = ProfileListViewModel(localDBService: CoreDataManager(context: CoreDataService.shared.context))
     
     @State var showEmptyRequest: Bool = false
-    
+
     var body: some View {
         NavigationStack {
             
@@ -62,6 +62,17 @@ struct CardStackView: View {
                     TopView()
                 }
             }
+            
+            .toast(isPresenting: $profileListVm.showErrorAlert) {
+                AlertToast(
+                    displayMode: .banner(.pop),
+                    type: .regular,
+                    title: TextConstants.offlineError,
+                    style: .style(backgroundColor: .black.opacity(0.5), titleColor: .white)
+                )
+            }
+            
+            
             .onAppear{
                 showEmptyRequest = false
                 profileListVm.getProfileList()

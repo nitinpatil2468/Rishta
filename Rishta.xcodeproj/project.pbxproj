@@ -41,6 +41,10 @@
 		EFC5A9652D05BB9B00C45A3F /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9642D05BB9B00C45A3F /* Shimmer.swift */; };
 		EFC5A96B2D05C56000C45A3F /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A96A2D05C56000C45A3F /* NoDataView.swift */; };
 		EFC5A96E2D05C6E300C45A3F /* EmptyScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A96D2D05C6E300C45A3F /* EmptyScreenType.swift */; };
+		EFC5A9722D06127100C45A3F /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9702D06127100C45A3F /* AlertToast.swift */; };
+		EFC5A9732D06127100C45A3F /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9712D06127100C45A3F /* BlurView.swift */; };
+		EFC5A9762D06130200C45A3F /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9752D06130200C45A3F /* TextConstants.swift */; };
+		EFC5A9782D06142800C45A3F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9772D06142800C45A3F /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +85,10 @@
 		EFC5A9642D05BB9B00C45A3F /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		EFC5A96A2D05C56000C45A3F /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		EFC5A96D2D05C6E300C45A3F /* EmptyScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenType.swift; sourceTree = "<group>"; };
+		EFC5A9702D06127100C45A3F /* AlertToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertToast.swift; sourceTree = "<group>"; };
+		EFC5A9712D06127100C45A3F /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		EFC5A9752D06130200C45A3F /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
+		EFC5A9772D06142800C45A3F /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +171,6 @@
 				EFC5A9632D05BB8E00C45A3F /* Modifiers */,
 				EFC5A9322D04B59500C45A3F /* DB */,
 				EFC5A9282D04AB5700C45A3F /* Network */,
-				EFC5A9452D0564D000C45A3F /* SizeConstants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 		EFC5A9212D049A1900C45A3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EFC5A9742D0612E700C45A3F /* Constants */,
 				EFC5A9222D049A2A00C45A3F /* GetProfileListResponse.swift */,
 				EFC5A9302D04B38200C45A3F /* PersonRawData.swift */,
 				EFC5A9612D05AE9F00C45A3F /* MatchStatus.swift */,
@@ -262,6 +270,7 @@
 		EFC5A9632D05BB8E00C45A3F /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				EFC5A96F2D06125A00C45A3F /* Toast */,
 				EFC5A9642D05BB9B00C45A3F /* Shimmer.swift */,
 			);
 			path = Modifiers;
@@ -281,6 +290,25 @@
 				EFC5A90D2D0493E200C45A3F /* ContentView.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		EFC5A96F2D06125A00C45A3F /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				EFC5A9772D06142800C45A3F /* ActivityIndicator.swift */,
+				EFC5A9702D06127100C45A3F /* AlertToast.swift */,
+				EFC5A9712D06127100C45A3F /* BlurView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		EFC5A9742D0612E700C45A3F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				EFC5A9452D0564D000C45A3F /* SizeConstants.swift */,
+				EFC5A9752D06130200C45A3F /* TextConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +441,7 @@
 				EFC5A94D2D05731900C45A3F /* UIColor.swift in Sources */,
 				EFC5A9392D04B78A00C45A3F /* CoreDataManager.swift in Sources */,
 				EFC5A96B2D05C56000C45A3F /* NoDataView.swift in Sources */,
+				EFC5A9782D06142800C45A3F /* ActivityIndicator.swift in Sources */,
 				EFC5A9232D049A2A00C45A3F /* GetProfileListResponse.swift in Sources */,
 				EFC5A92F2D04B10100C45A3F /* DBModel.xcdatamodeld in Sources */,
 				EFC5A95E2D05A81800C45A3F /* FriendListViewModel.swift in Sources */,
@@ -420,9 +449,12 @@
 				EFC5A9272D049BF300C45A3F /* ProfileListViewModel.swift in Sources */,
 				EFC5A9202D04996100C45A3F /* ProfileListService.swift in Sources */,
 				EFC5A9542D0595F700C45A3F /* HomeView.swift in Sources */,
+				EFC5A9722D06127100C45A3F /* AlertToast.swift in Sources */,
 				EFC5A95C2D05A7B400C45A3F /* FriendCardView.swift in Sources */,
+				EFC5A9732D06127100C45A3F /* BlurView.swift in Sources */,
 				EFC5A94A2D056E1500C45A3F /* SwipeIndicatorView.swift in Sources */,
 				EFC5A9592D059D9100C45A3F /* SwipeButtonsView.swift in Sources */,
+				EFC5A9762D06130200C45A3F /* TextConstants.swift in Sources */,
 				EFC5A90E2D0493E200C45A3F /* ContentView.swift in Sources */,
 				EFC5A91B2D04955200C45A3F /* APIServiceManager.swift in Sources */,
 				EFC5A9482D056C4E00C45A3F /* UserInfoView.swift in Sources */,

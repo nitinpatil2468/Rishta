@@ -21,13 +21,14 @@ class ProfileListService: ProfileListServiceProtocol{
         
         NetworkManager.sharedInstance.performRequest(serviceType: .getProfiles(dataCount: "10")) { response in
             
-            let str = CommonMethods().printAPIResponse(data: response)
             let modal = response.decode(model: GetProfileListResponse.self)
             completion(modal)
             
         } failure: { error in
             
             debugPrint(error)
+            completion(.failure(error))
+
         }
 
     }

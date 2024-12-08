@@ -17,6 +17,8 @@ class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
     @Published var isDataLoading:Bool = true
     
     @Published var matchList = [PersonRawData]()
+    @Published var showErrorAlert = false
+
     
     var profileListService: ProfileListServiceProtocol
     var localStorageService: LocalStorageService
@@ -46,8 +48,8 @@ class ProfileListViewModel:ObservableObject,ProfileListVMProtocol{
 
                 break
                 
-            case .failure(_):
-                
+            case .failure(let error):
+                showErrorAlert.toggle()
                 break
                 
             }
