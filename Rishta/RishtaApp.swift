@@ -11,7 +11,7 @@ import SwiftUI
 struct RishtaApp: App {
     var body: some Scene {
         WindowGroup {
-            CardStackView()
+            HomeView()
         }
     }
 }

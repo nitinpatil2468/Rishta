@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 // MARK: - CardView
 struct CardView: View {
-    // state variables
+
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     @State private var currentImageIndex = 0
@@ -19,6 +19,10 @@ struct CardView: View {
     @State var personData: PersonRawData
     
     @ObservedObject var vm : ProfileListViewModel
+    
+    @State var isAccepted: Bool = false
+    @State var isDeclined: Bool = false
+
     
     var body: some View {
         
@@ -47,40 +51,7 @@ struct CardView: View {
                     
                     Spacer().frame(height: 20)
 
-                    HStack {
-                        Button(action: {
-                            print("Decline tapped")
-                        }) {
-                            Text("Decline")
-                                .font(.headline)
-                                .foregroundColor(.red)
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(8)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.red, lineWidth: 1)
-                                )
-                        }
-                        
-                        Button(action: {
-                            print("Accept tapped")
-                        }) {
-                            HStack {
-                                Text("Accept")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.white)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(8)
-                        }
-                    }
-                    .padding([.bottom,.horizontal],20)
+                    SwipeButtonsView(isAccepted: $isAccepted, isDeclined: $isDeclined)
 
                     
                 }
@@ -104,6 +75,14 @@ struct CardView: View {
                 .onChanged(onDragChanged)
                 .onEnded(onDragEnded)
         )
+        
+        .onChange(of: isAccepted) { flag in
+            flag ? swipeRight() : ()
+        }
+        
+        .onChange(of: isDeclined) { flag in
+            flag ? swipeLeft() : ()
+        }
     }
 }
 

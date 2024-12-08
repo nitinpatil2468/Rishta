@@ -30,6 +30,10 @@
 		EFC5A9482D056C4E00C45A3F /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9472D056C4E00C45A3F /* UserInfoView.swift */; };
 		EFC5A94A2D056E1500C45A3F /* SwipeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9492D056E1500C45A3F /* SwipeIndicatorView.swift */; };
 		EFC5A94D2D05731900C45A3F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A94C2D05731900C45A3F /* UIColor.swift */; };
+		EFC5A9522D0586DF00C45A3F /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9512D0586DF00C45A3F /* TopView.swift */; };
+		EFC5A9542D0595F700C45A3F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9532D0595F700C45A3F /* HomeView.swift */; };
+		EFC5A9562D05965400C45A3F /* MatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9552D05965400C45A3F /* MatchListView.swift */; };
+		EFC5A9592D059D9100C45A3F /* SwipeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9582D059D9100C45A3F /* SwipeButtonsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,10 @@
 		EFC5A9472D056C4E00C45A3F /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		EFC5A9492D056E1500C45A3F /* SwipeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeIndicatorView.swift; sourceTree = "<group>"; };
 		EFC5A94C2D05731900C45A3F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		EFC5A9512D0586DF00C45A3F /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		EFC5A9532D0595F700C45A3F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EFC5A9552D05965400C45A3F /* MatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListView.swift; sourceTree = "<group>"; };
+		EFC5A9582D059D9100C45A3F /* SwipeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +211,8 @@
 			children = (
 				EFC5A9402D0562AF00C45A3F /* Cells */,
 				EFC5A9432D05634E00C45A3F /* CardStackView.swift */,
+				EFC5A9512D0586DF00C45A3F /* TopView.swift */,
+				EFC5A9532D0595F700C45A3F /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +223,8 @@
 				EFC5A9412D0562DB00C45A3F /* CardView.swift */,
 				EFC5A9472D056C4E00C45A3F /* UserInfoView.swift */,
 				EFC5A9492D056E1500C45A3F /* SwipeIndicatorView.swift */,
+				EFC5A9552D05965400C45A3F /* MatchListView.swift */,
+				EFC5A9582D059D9100C45A3F /* SwipeButtonsView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -344,8 +356,10 @@
 				EFC5A9422D0562DB00C45A3F /* CardView.swift in Sources */,
 				EFC5A92A2D04ABA400C45A3F /* NetworkData.swift in Sources */,
 				EFC5A93B2D04CA0300C45A3F /* CoreDataService.swift in Sources */,
+				EFC5A9562D05965400C45A3F /* MatchListView.swift in Sources */,
 				EFC5A9372D04B6EA00C45A3F /* StorageManager.swift in Sources */,
 				EFC5A91D2D04981800C45A3F /* NetworkManager.swift in Sources */,
+				EFC5A9522D0586DF00C45A3F /* TopView.swift in Sources */,
 				EFC5A9462D0564D000C45A3F /* SizeConstants.swift in Sources */,
 				EFC5A9312D04B38200C45A3F /* PersonRawData.swift in Sources */,
 				EFC5A94D2D05731900C45A3F /* UIColor.swift in Sources */,
@@ -354,7 +368,9 @@
 				EFC5A92F2D04B10100C45A3F /* DBModel.xcdatamodeld in Sources */,
 				EFC5A9272D049BF300C45A3F /* ProfileListViewModel.swift in Sources */,
 				EFC5A9202D04996100C45A3F /* ProfileListService.swift in Sources */,
+				EFC5A9542D0595F700C45A3F /* HomeView.swift in Sources */,
 				EFC5A94A2D056E1500C45A3F /* SwipeIndicatorView.swift in Sources */,
+				EFC5A9592D059D9100C45A3F /* SwipeButtonsView.swift in Sources */,
 				EFC5A90E2D0493E200C45A3F /* ContentView.swift in Sources */,
 				EFC5A91B2D04955200C45A3F /* APIServiceManager.swift in Sources */,
 				EFC5A9482D056C4E00C45A3F /* UserInfoView.swift in Sources */,
@@ -501,6 +517,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,6 +548,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

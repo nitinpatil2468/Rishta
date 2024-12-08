@@ -16,4 +16,18 @@ extension UIColor{
         return UIColor(named: "Color/TextColor")!
     }
     
+    static var GradientOne: UIColor{
+        return UIColor(named: "Color/GradientColorOne")!
+    }
+    
+    static var GradientTwo: UIColor{
+        return UIColor(named: "Color/GradientColorTwo")!
+    }
+    
+    static var IconColor: UIColor{
+        return UIColor(named: "Color/Icon Color")!
+    }
+    
+    
+    
 }
