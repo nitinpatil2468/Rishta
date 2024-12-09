@@ -7,7 +7,8 @@ target 'Rishta' do
 
   # Pods for Rishta
    pod 'SDWebImageSwiftUI'
-   pod 'Alamofire'
+   pod 'Alamofire','~> 5.7.0'
+
 
 
 
