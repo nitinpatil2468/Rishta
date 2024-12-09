@@ -19,7 +19,6 @@
 		EFC5A9272D049BF300C45A3F /* ProfileListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9262D049BF300C45A3F /* ProfileListViewModel.swift */; };
 		EFC5A92A2D04ABA400C45A3F /* NetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9292D04ABA400C45A3F /* NetworkData.swift */; };
 		EFC5A92C2D04B0B900C45A3F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC5A92B2D04B0B900C45A3F /* CoreData.framework */; };
-		EFC5A92F2D04B10100C45A3F /* DBModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A92D2D04B10100C45A3F /* DBModel.xcdatamodeld */; };
 		EFC5A9312D04B38200C45A3F /* PersonRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9302D04B38200C45A3F /* PersonRawData.swift */; };
 		EFC5A9372D04B6EA00C45A3F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9362D04B6EA00C45A3F /* StorageManager.swift */; };
 		EFC5A9392D04B78A00C45A3F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9382D04B78A00C45A3F /* CoreDataManager.swift */; };
@@ -45,6 +44,7 @@
 		EFC5A9732D06127100C45A3F /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9712D06127100C45A3F /* BlurView.swift */; };
 		EFC5A9762D06130200C45A3F /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9752D06130200C45A3F /* TextConstants.swift */; };
 		EFC5A9782D06142800C45A3F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5A9772D06142800C45A3F /* ActivityIndicator.swift */; };
+		EFEEBCCB2D06FE6C006CD028 /* DBModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFEEBCC92D06FE6C006CD028 /* DBModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +63,6 @@
 		EFC5A9262D049BF300C45A3F /* ProfileListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListViewModel.swift; sourceTree = "<group>"; };
 		EFC5A9292D04ABA400C45A3F /* NetworkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkData.swift; sourceTree = "<group>"; };
 		EFC5A92B2D04B0B900C45A3F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		EFC5A92E2D04B10100C45A3F /* DBModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DBModel.xcdatamodel; sourceTree = "<group>"; };
 		EFC5A9302D04B38200C45A3F /* PersonRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRawData.swift; sourceTree = "<group>"; };
 		EFC5A9362D04B6EA00C45A3F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		EFC5A9382D04B78A00C45A3F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		EFC5A9712D06127100C45A3F /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		EFC5A9752D06130200C45A3F /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
 		EFC5A9772D06142800C45A3F /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		EFEEBCCA2D06FE6C006CD028 /* DBModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DBModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				EFC5A9692D05C4BE00C45A3F /* App */,
-				EFC5A9682D05C49100C45A3F /* New Group */,
 				EFC5A94B2D05730A00C45A3F /* Resource */,
 				EFC5A93F2D0562A900C45A3F /* View */,
 				EFC5A9242D049BC100C45A3F /* ViewModel */,
@@ -152,7 +151,7 @@
 				EFC5A91E2D04994100C45A3F /* Helper */,
 				EFC5A9192D04948E00C45A3F /* Utilities */,
 				EFC5A9112D0493E300C45A3F /* Preview Content */,
-				EFC5A92D2D04B10100C45A3F /* DBModel.xcdatamodeld */,
+				EFEEBCC92D06FE6C006CD028 /* DBModel.xcdatamodeld */,
 			);
 			path = Rishta;
 			sourceTree = "<group>";
@@ -274,13 +273,6 @@
 				EFC5A9642D05BB9B00C45A3F /* Shimmer.swift */,
 			);
 			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		EFC5A9682D05C49100C45A3F /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		EFC5A9692D05C4BE00C45A3F /* App */ = {
@@ -436,6 +428,7 @@
 				EFC5A9372D04B6EA00C45A3F /* StorageManager.swift in Sources */,
 				EFC5A91D2D04981800C45A3F /* NetworkManager.swift in Sources */,
 				EFC5A9522D0586DF00C45A3F /* TopView.swift in Sources */,
+				EFEEBCCB2D06FE6C006CD028 /* DBModel.xcdatamodeld in Sources */,
 				EFC5A9462D0564D000C45A3F /* SizeConstants.swift in Sources */,
 				EFC5A9312D04B38200C45A3F /* PersonRawData.swift in Sources */,
 				EFC5A94D2D05731900C45A3F /* UIColor.swift in Sources */,
@@ -443,7 +436,6 @@
 				EFC5A96B2D05C56000C45A3F /* NoDataView.swift in Sources */,
 				EFC5A9782D06142800C45A3F /* ActivityIndicator.swift in Sources */,
 				EFC5A9232D049A2A00C45A3F /* GetProfileListResponse.swift in Sources */,
-				EFC5A92F2D04B10100C45A3F /* DBModel.xcdatamodeld in Sources */,
 				EFC5A95E2D05A81800C45A3F /* FriendListViewModel.swift in Sources */,
 				EFC5A9652D05BB9B00C45A3F /* Shimmer.swift in Sources */,
 				EFC5A9272D049BF300C45A3F /* ProfileListViewModel.swift in Sources */,
@@ -670,14 +662,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EFC5A92D2D04B10100C45A3F /* DBModel.xcdatamodeld */ = {
+		EFEEBCC92D06FE6C006CD028 /* DBModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EFC5A92E2D04B10100C45A3F /* DBModel.xcdatamodel */,
+				EFEEBCCA2D06FE6C006CD028 /* DBModel.xcdatamodel */,
 			);
-			currentVersion = EFC5A92E2D04B10100C45A3F /* DBModel.xcdatamodel */;
+			currentVersion = EFEEBCCA2D06FE6C006CD028 /* DBModel.xcdatamodel */;
 			name = DBModel.xcdatamodeld;
-			path = /Users/abcom/Documents/Development/Rishta/Rishta/DBModel.xcdatamodeld;
+			path = /Users/abcom/Documents/Rishta/Rishta/DBModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
